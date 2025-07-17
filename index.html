@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โต๊ะว่างวันนี้</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>โต๊ะว่างวันนี้</h1>
+        <p>อัปเดตล่าสุด: <span id="last-updated">--:--</span></p>
+    </header>
+
+    <main>
+        <div id="filters">
+            <select id="date-filter" class="filter-select">
+                <option value="all">ทุกวันที่</option>
+            </select>
+            <!-- เพิ่มฟิลเตอร์ "วัน" ตรงนี้ -->
+            <select id="day-filter" class="filter-select">
+                <option value="all">ทุกวัน</option>
+            </select>
+            <select id="store-filter" class="filter-select">
+                <option value="all">ทุกร้าน</option>
+            </select>
+            <select id="quantity-filter" class="filter-select">
+                <option value="all">ทุกจำนวนโต๊ะ</option>
+            </select>
+        </div>
+
+        <div id="loader" class="loader">กำลังโหลดข้อมูลโต๊ะ...</div>
+
+        <div id="tables-container">
+            <!-- ข้อมูลโต๊ะจะถูกสร้างโดย JavaScript แล้วนำมาใส่ในนี้ -->
+        </div>
+    </main>
+
+    <!-- Modal สำหรับแสดงรูปภาพผังโต๊ะ -->
+    <div id="image-modal" class="modal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+:root {
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --accent-color: #000000;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+header h1 {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+header p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+main {
+    padding: 1.5rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#filters {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.filter-select {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    font-family: 'Kanit', sans-serif;
+    font-size: 1rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    transition: border-color 0.2s;
+}
+
+.filter-select:hover {
+    border-color: var(--accent-color);
+}
+
+.loader {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+#tables-container {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.table-card {
+    background-color: var(--card-bg);
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.table-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #e9ecef;
+    transition: background-color 0.3s ease;
+}
+
+.store-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.date-info {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.date-tag, .day-tag {
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+}
+
+.date-tag {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+.day-tag {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* --- จุดที่แก้ไข: เพิ่มธีมสีสำหรับแต่ละร้าน --- */
+.card-header.hashtag-theme,
+.card-header.replayground-theme,
+.card-header.sigma-theme {
+    color: #ffffff; /* ทำให้ตัวหนังสือเป็นสีขาว */
+    border-bottom: 1px solid transparent;
+}
+
+.card-header.hashtag-theme .store-name,
+.card-header.replayground-theme .store-name,
+.card-header.sigma-theme .store-name {
+    color: #ffffff;
+}
+
+.card-header.hashtag-theme .date-tag,
+.card-header.replayground-theme .date-tag,
+.card-header.sigma-theme .date-tag {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.card-header.hashtag-theme {
+    background-color: #d9263e; /* สีแดง */
+}
+
+.card-header.replayground-theme {
+    background-color: #1a1a1a; /* สีดำ */
+}
+
+.card-header.sigma-theme {
+    background-color: #0d6efd; /* สีฟ้า */
+}
+
+/* ------------------------------------------- */
+
+.card-body {
+    padding: 1.25rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #f8f9fa;
+}
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    color: var(--text-secondary);
+}
+
+.detail-value {
+    font-weight: 500;
+}
+
+.notes-section {
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #e9ecef;
+}
+
+.notes-section .detail-label {
+    margin-bottom: 0.25rem;
+}
+.notes-section .detail-value {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    color: var(--text-secondary);
+}
+
+.card-footer {
+    background-color: #fcfcfd;
+    padding: 1rem 1.25rem;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-row {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.total-price {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.layout-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.layout-btn:hover {
+    background-color: #0b5ed7;
+    transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 8px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
