@@ -192,7 +192,7 @@ function renderTables(tables) {
                     <span class="detail-value">${table.pricePerTable.toLocaleString()}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="detail-label">ราคาเครดิต/มัดจำ</span>
+                    <span class="detail-label">ราคาเครดิต/มัดจำต่อโต๊ะ</span>
                     <span class="detail-value">${table.creditPrice.toLocaleString()}</span>
                 </div>
                 ${notesHTML}
